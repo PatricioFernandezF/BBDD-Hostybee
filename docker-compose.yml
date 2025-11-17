@@ -12,9 +12,9 @@ services:
       - MARIADB_PASSWORD=Solito674
     volumes:
       - mariadb_data:/var/lib/mysql
-      - ./init-databases.sql:/docker-entrypoint-initdb.d/00-init-databases.sql
-      - ./newsletter.sql:/docker-entrypoint-initdb.d/01-newsletter.sql
-      - ./uploads.sql:/docker-entrypoint-initdb.d/02-uploads.sql
+      - /artifacts/init-databases.sql:/docker-entrypoint-initdb.d/00-init-databases.sql
+      - /artifacts/newsletter.sql:/docker-entrypoint-initdb.d/01-newsletter.sql
+      - /artifacts/uploads.sql:/docker-entrypoint-initdb.d/02-uploads.sql
     restart: unless-stopped
     networks:
       - coolify
