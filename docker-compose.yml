@@ -7,9 +7,9 @@ services:
     ports:
       - "3307:3306"
     environment:
-      - MARIADB_ROOT_PASSWORD=Hostybee2025!Solito674
+      - MARIADB_ROOT_PASSWORD=Solito674
       - MARIADB_USER=hostybee_admin
-      - MARIADB_PASSWORD=Hostybee2025!Solito674
+      - MARIADB_PASSWORD=Solito674
     volumes:
       - mariadb_data:/var/lib/mysql
       - ./newsletter.sql:/docker-entrypoint-initdb.d/01-newsletter.sql
@@ -18,7 +18,7 @@ services:
     networks:
       - coolify
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h localhost -pHostybee2025!Solito674 | grep 'mysqld is alive'"]
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -pSolito674 | grep 'mysqld is alive'"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -30,8 +30,8 @@ services:
       - "3578:80"
     environment:
       - PMA_HOST=mariadb
-      - PMA_USER=hostybee_admin
-      - PMA_PASSWORD=Hostybee2025!Solito674
+      - PMA_AUTH_TYPE=cookie
+      - PMA_COOKIE_AUTH=true
     depends_on:
       - mariadb
     restart: unless-stopped
