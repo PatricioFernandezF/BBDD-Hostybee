@@ -18,7 +18,7 @@ services:
     networks:
       - coolify
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h localhost -pHostybee2025!Root | grep 'mysqld is alive'"]
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -pHostybee2025!Solito674 | grep 'mysqld is alive'"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -31,7 +31,7 @@ services:
     environment:
       - PMA_HOST=mariadb
       - PMA_USER=hostybee_admin
-      - PMA_PASSWORD=Solito674
+      - PMA_PASSWORD=Hostybee2025!Solito674
     depends_on:
       - mariadb
     restart: unless-stopped
