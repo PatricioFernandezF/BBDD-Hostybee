@@ -9,7 +9,7 @@ services:
     environment:
       - MARIADB_ROOT_PASSWORD=Solito674
     volumes:
-      - mariabd_data:/var/lib/mysql
+      - marialn_data:/var/lib/mysql
       - ./init-databases.sql:/docker-entrypoint-initdb.d/00-init-databases.sql
     restart: unless-stopped
     networks:
@@ -27,8 +27,8 @@ services:
       - "3578:80"
     environment:
       - PMA_HOST=mariadb
-      - PMA_AUTH_TYPE=cookie
-      - PMA_COOKIE_AUTH=true
+      - PMA_USER=root
+      - PMA_PASSWORD=Solito674
     depends_on:
       - mariadb
     restart: unless-stopped
@@ -36,7 +36,7 @@ services:
       - coolify
 
 volumes:
-  mariabd_data:
+  marialn_data:
 
 networks:
   coolify:
