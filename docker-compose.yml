@@ -8,11 +8,8 @@ services:
       - "3307:3306"
     environment:
       - MARIADB_ROOT_PASSWORD=Solito674
-      - MARIADB_USER=hostybee_admin
-      - MARIADB_PASSWORD=Solito674
-      - MARIADB_DATABASE=newsletter
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - mariabd_data:/var/lib/mysql
       - ./init-databases.sql:/docker-entrypoint-initdb.d/00-init-databases.sql
     restart: unless-stopped
     networks:
@@ -39,7 +36,7 @@ services:
       - coolify
 
 volumes:
-  mariadb_data:
+  mariabd_data:
 
 networks:
   coolify:
