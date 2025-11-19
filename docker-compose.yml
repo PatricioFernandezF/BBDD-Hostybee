@@ -10,11 +10,10 @@ services:
       - MARIADB_ROOT_PASSWORD=Solito674
       - MARIADB_USER=hostybee_admin
       - MARIADB_PASSWORD=Solito674
+      - MARIADB_DATABASE=newsletter
     volumes:
       - mariadb_data:/var/lib/mysql
-      - /artifacts/init-databases.sql:/docker-entrypoint-initdb.d/00-init-databases.sql
-      - /artifacts/newsletter.sql:/docker-entrypoint-initdb.d/01-newsletter.sql
-      - /artifacts/uploads.sql:/docker-entrypoint-initdb.d/02-uploads.sql
+      - ./init-databases.sql:/docker-entrypoint-initdb.d/00-init-databases.sql
     restart: unless-stopped
     networks:
       - coolify

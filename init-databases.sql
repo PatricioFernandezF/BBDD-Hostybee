@@ -5,7 +5,6 @@ CREATE DATABASE IF NOT EXISTS `uploads`;
 -- Crear usuario si no existe
 CREATE USER IF NOT EXISTS 'hostybee_admin'@'%' IDENTIFIED BY 'Solito674';
 
--- Otorgar permisos al usuario
-GRANT ALL PRIVILEGES ON `newsletter`.* TO 'hostybee_admin'@'%';
-GRANT ALL PRIVILEGES ON `uploads`.* TO 'hostybee_admin'@'%';
+-- Otorgar TODOS los permisos al usuario, incluyendo crear bases de datos
+GRANT ALL PRIVILEGES ON *.* TO 'hostybee_admin'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
