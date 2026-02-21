@@ -39,4 +39,4 @@ volumes:
 networks:
   juan:
       external: true
-      name: coolify
+      name: juan
