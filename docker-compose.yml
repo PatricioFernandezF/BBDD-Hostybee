@@ -13,7 +13,7 @@ services:
       - ./init-databases.sql:/docker-entrypoint-initdb.d/00-init-databases.sql
     restart: unless-stopped
     networks:
-      - juan
+      - coolify
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h localhost -pSolito674 | grep 'mysqld is alive'"]
       interval: 10s
@@ -31,12 +31,12 @@ services:
       - mariadb
     restart: unless-stopped
     networks:
-      - juan
+      - coolify
 
 volumes:
   marialn_data:
 
 networks:
-  juan:
-      external: false
-      name: juan
+  coolify:
+      external: true
+      name: coolify
