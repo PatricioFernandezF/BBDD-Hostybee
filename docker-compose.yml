@@ -13,7 +13,9 @@ services:
       - ./init-databases.sql:/docker-entrypoint-initdb.d/00-init-databases.sql
     restart: unless-stopped
     networks:
-      - coolify
+      coolify:
+        aliases:
+          - mariadb_db
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h localhost -pSolito674 | grep 'mysqld is alive'"]
       interval: 10s
